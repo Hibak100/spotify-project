@@ -1,0 +1,14 @@
+.CurrentSong{
+    text-align: left;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.MainImage{
+    height: 500px;
+}
+
+.Controls {
+    display: flex;
+    justify-content: center;
+}

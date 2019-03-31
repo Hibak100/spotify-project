@@ -1,0 +1,10 @@
+.Table {
+    width: 3016px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.ButtonContainer {
+    display: flex;
+    justify-content: space-between;
+}
