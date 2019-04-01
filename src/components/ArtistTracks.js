@@ -49,7 +49,7 @@ class ArtistTracks extends Component {
     return (
       <div className="Table">
         <div className="ButtonContainer">
-          <div>
+          <div id="artists">
           Artist: {
             this.props.artists.map((a, idx) =>
               <button key={`${a.name}_${idx}`}
@@ -58,7 +58,7 @@ class ArtistTracks extends Component {
                       onClick={() => this.updateArtist(a)}>{a.name}</button>)
           }
           </div>
-          <div>
+          <div id="options">
             Options: {
             this.state.options.map((m, idx) =>
               <button key={`${m}_${idx}`}
@@ -84,4 +84,9 @@ class ArtistTracks extends Component {
 ArtistTracks.propTypes = {
   artists: PropTypes.array
 };
+
+ArtistTracks.defaultProps ={
+  artists: [{id:"foo"}]
+};
+
 export default ArtistTracks;

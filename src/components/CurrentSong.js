@@ -18,21 +18,12 @@ class CurrentSong extends Component {
     },  async () => await controls(action));
   }
 
-  updateSkipAction(action,index){
-    let a = action;
-    if(this.state.skip === action){
-      a = `${action}_${++index}`
-    }
-    this.setState({
-      skip: a
-    },  async () => await controls(action).finally(this.props.updatePlaying()));
+  updateSkipAction(action) {
+     controls(action).then(() => this.props.updatePlaying())
   }
-
-
 
   render() {
     const action = this.state.pause ? "pause" : "play";
-    let index = 0;
     return (
       <div className="CurrentSong">
         <div>
@@ -41,7 +32,7 @@ class CurrentSong extends Component {
         <div className="Controls">
           <button className="btn" onClick={() => this.updateSkipAction("previous")}><i className="fa fa-backward"/></button>
           <button className="btn" onClick={() => this.updatePauseAction(action)}><i className={`fa fa-${action}`}/></button>
-          <button className="btn" onClick={() => this.updateSkipAction("next", index)}><i className="fa fa-forward"/></button>
+          <button className="btn" onClick={() => this.updateSkipAction("next")}><i className="fa fa-forward"/></button>
           {this.props.children}
         </div>
         <div>

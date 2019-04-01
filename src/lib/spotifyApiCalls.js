@@ -24,8 +24,9 @@ function getHashParams() {
 export async function getNowPlaying() {
   try {
     const response = await setAccess().getMyCurrentPlaybackState();
+
+    console.log(response)
     if (response) {
-      console.log(response)
       return {
         nowPlaying: {
           song: response.item.name,
@@ -67,7 +68,6 @@ export async function getAudioFeatures(track) {
     const energy = response.energy;
     if (valence < 0.5 && energy < 0.5){
         return "Mellow"
-
     }
     return "Upbeat";
   } catch (e) {

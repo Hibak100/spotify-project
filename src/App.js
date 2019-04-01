@@ -25,14 +25,14 @@ class App extends Component {
             <a href='http://localhost:8888' className="LoginIn"> Login to Spotify </a>
           </button>
         </div>
-        {this.state.nowPlaying ?
-        <div className="Container">
-          <CurrentSong  nowPlaying={this.state.nowPlaying} updatePlaying={()=>this.nowPlaying()}>
-            <button className="btn btn-outline-dark" onClick={() => this.nowPlaying()}>Now Playing</button>
-          </CurrentSong>
-          <ArtistTracks artists={this.state.nowPlaying.artists}/>
-        </div>
-          :
+        {
+          this.state.nowPlaying ?
+            <div className="Container">
+              <CurrentSong nowPlaying={this.state.nowPlaying} updatePlaying={() => this.nowPlaying()}>
+                <button className="btn btn-outline-dark" onClick={() => this.nowPlaying()}>Now Playing</button>
+              </CurrentSong>
+              <ArtistTracks artists={this.state.nowPlaying.artists}/>
+            </div> :
             <div className="alert alert-warning" role="alert">
               Player has stopped
             </div>
